@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>交互式布局</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .paragraph {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .flex-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            gap: 20px;
+        }
+        
+        .box {
+            flex: 1;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+        }
+        
+        .main-image {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        
+        .text-container {
+            margin-top: 10px;
+        }
+        
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .tab {
+            padding: 10px 20px;
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+        
+        .tab.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        .content-box {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        
+        .content-box.active {
+            display: block;
+        }
+        
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+            justify-content: flex-start;
+        }
+        
+        .thumbnail {
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            border: 1px solid #ddd;
+        }
+        
+        .thumbnail:hover {
+            border-color: #4CAF50;
+        }
+        
+        .section-title {
+            margin: 15px 0;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="paragraph">
+        <p>text01</p>
+    </div>
+    
+    <div class="paragraph">
+        <p>text02</p>
+    </div>
+    
+    <div class="flex-container" id="boxgroup-centre">
+        <div class="box" id="boxLeft">
+            <img src="/api/placeholder/300/300" alt="Main Image Left" id="jpeg01L" class="main-image">
+            <div class="text-container" id="textLeft">左侧内容</div>
+        </div>
+        
+        <div class="box" id="boxRight">
+            <img src="/api/placeholder/300/300" alt="Main Image Right" id="jpeg01R" class="main-image">
+            <div class="text-container" id="textRight">右侧内容</div>
+        </div>
+    </div>
+    
+    <div class="tabs">
+        <div class="tab" id="textLs">左侧</div>
+        <div class="tab active" id="textBs">中间</div>
+        <div class="tab" id="textRs">右侧</div>
+    </div>
+    
+    <!-- 左侧内容区域 -->
+    <div class="content-box" id="boxLs">
+        <h3 class="section-title" id="textL1">左侧图集 1</h3>
+        <div class="image-gallery">
+            <!-- jpegL01 ~ jpegL11 -->
+            <img src="/api/placeholder/30/30" alt="Thumbnail L01" class="thumbnail" data-target="L01">
+            <img src="/api/placeholder/30/30" alt="Thumbnail L02" class="thumbnail" data-target="L02">
+            <img src="/api/placeholder/30/30" alt="Thumbnail L03" class="thumbnail" data-target="L03">
+            <img src="/api/placeholder/30/30" alt="Thumbnail L04" class="thumbnail" data-target="L04">
+            <img src="/api/placeholder/30/30" alt="Thumbnail L05" class="thumbnail" data-target="L05">
+            <img src="/api/placeholder/30/30" alt="Thumbnail L06" class="thumbnail" data-target="L06">
+            <img src="/api/placeholder/30/30" alt="Thumbnail L07" class="thumbnail" data-target="L07">
+            <img src="/api/placeholder/30/30" alt="Thumbnail L08" class="thumbnail" data-target="L08">
+            <img src="/api/placeholder/30/30" alt="Thumbnail L09" class="thumbnail" data-target="L09">
+            <img src="/api/placeholder/30/30" alt="Thumbnail L10" class="thumbnail" data-target="L10">
+            <img src="/api/placeholder/30/30" alt="Thumbnail L11" class="thumbnail" data-target="L11">
+        </div>
+        
+        <h3 class="section-title" id="textL2">左侧图集 2</h3>
+        <div class="image-gallery">
+            <!-- jpegL12 ~ jpegL22 -->
+            <img src="/api/placeholder/30/30" alt="Thumbnail L12" class="thumbnail" data-target="L12">
+            <img src="/api/placeholder/30/30" alt="Thumbnail L13" class="thumbnail" data-target="L13">
+            <img src="/api/placeholder/30/30" alt="Thumbnail L14" class="thumbnail" data-target="L14">
+            <img src="/api/placeholder/30/30" alt="Thumbnail L15" class="thumbnail" data-target="L15">
+            <img src="/api/placeholder/30/30" alt="Thumbnail L16" class="thumbnail" data-target="L16">
+            <img src="/api/placeholder/30/30" alt="Thumbnail L17" class="thumbnail" data-target="L17">
+            <img src="/api/placeholder/30/30" alt="Thumbnail L18" class="thumbnail" data-target="L18">
+            <img src="/api/placeholder/30/30" alt="Thumbnail L19" class="thumbnail" data-target="L19">
+            <img src="/api/placeholder/30/30" alt="Thumbnail L20" class="thumbnail" data-target="L20">
+            <img src="/api/placeholder/30/30" alt="Thumbnail L21" class="thumbnail" data-target="L21">
+            <img src="/api/placeholder/30/30" alt="Thumbnail L22" class="thumbnail" data-target="L22">
+        </div>
+        
+        <h3 class="section-title" id="textL3">左侧图集 3</h3>
+        <div class="image-gallery">
+            <!-- jpegL23 ~ jpegL29 -->
+            <img src="/api/placeholder/30/30" alt="Thumbnail L23" class="thumbnail" data-target="L23">
+            <img src="/api/placeholder/30/30" alt="Thumbnail L24" class="thumbnail" data-target="L24">
+            <img src="/api/placeholder/30/30" alt="Thumbnail L25" class="thumbnail" data-target="L25">
+            <img src="/api/placeholder/30/30" alt="Thumbnail L26" class="thumbnail" data-target="L26">
+            <img src="/api/placeholder/30/30" alt="Thumbnail L27" class="thumbnail" data-target="L27">
+            <img src="/api/placeholder/30/30" alt="Thumbnail L28" class="thumbnail" data-target="L28">
+            <img src="/api/placeholder/30/30" alt="Thumbnail L29" class="thumbnail" data-target="L29">
+        </div>
+    </div>
+    
+    <!-- 中间内容区域，默认展开 -->
+    <div class="content-box active" id="boxBs">
+        <h3 class="section-title" id="textB1">中间图集 1</h3>
+        <div class="image-gallery">
+            <!-- jpegB01 ~ jpegB11 -->
+            <img src="/api/placeholder/30/30" alt="Thumbnail B01" class="thumbnail" data-target="B01">
+            <img src="/api/placeholder/30/30" alt="Thumbnail B02" class="thumbnail" data-target="B02">
+            <img src="/api/placeholder/30/30" alt="Thumbnail B03" class="thumbnail" data-target="B03">
+            <img src="/api/placeholder/30/30" alt="Thumbnail B04" class="thumbnail" data-target="B04">
+            <img src="/api/placeholder/30/30" alt="Thumbnail B05" class="thumbnail" data-target="B05">
+            <img src="/api/placeholder/30/30" alt="Thumbnail B06" class="thumbnail" data-target="B06">
+            <img src="/api/placeholder/30/30" alt="Thumbnail B07" class="thumbnail" data-target="B07">
+            <img src="/api/placeholder/30/30" alt="Thumbnail B08" class="thumbnail" data-target="B08">
+            <img src="/api/placeholder/30/30" alt="Thumbnail B09" class="thumbnail" data-target="B09">
+            <img src="/api/placeholder/30/30" alt="Thumbnail B10" class="thumbnail" data-target="B10">
+            <img src="/api/placeholder/30/30" alt="Thumbnail B11" class="thumbnail" data-target="B11">
+        </div>
+        
+        <h3 class="section-title" id="textB2">中间图集 2</h3>
+        <div class="image-gallery">
+            <!-- jpegB12 ~ jpegB22 -->
+            <img src="/api/placeholder/30/30" alt="Thumbnail B12" class="thumbnail" data-target="B12">
+            <img src="/api/placeholder/30/30" alt="Thumbnail B13" class="thumbnail" data-target="B13">
+            <img src="/api/placeholder/30/30" alt="Thumbnail B14" class="thumbnail" data-target="B14">
+            <img src="/api/placeholder/30/30" alt="Thumbnail B15" class="thumbnail" data-target="B15">
+            <img src="/api/placeholder/30/30" alt="Thumbnail B16" class="thumbnail" data-target="B16">
+            <img src="/api/placeholder/30/30" alt="Thumbnail B17" class="thumbnail" data-target="B17">
+            <img src="/api/placeholder/30/30" alt="Thumbnail B18" class="thumbnail" data-target="B18">
+            <img src="/api/placeholder/30/30" alt="Thumbnail B19" class="thumbnail" data-target="B19">
+            <img src="/api/placeholder/30/30" alt="Thumbnail B20" class="thumbnail" data-target="B20">
+            <img src="/api/placeholder/30/30" alt="Thumbnail B21" class="thumbnail" data-target="B21">
+            <img src="/api/placeholder/30/30" alt="Thumbnail B22" class="thumbnail" data-target="B22">
+        </div>
+        
+        <h3 class="section-title" id="textB3">中间图集 3</h3>
+        <div class="image-gallery">
+            <!-- jpegB23 ~ jpegB29 -->
+            <img src="/api/placeholder/30/30" alt="Thumbnail B23" class="thumbnail" data-target="B23">
+            <img src="/api/placeholder/30/30" alt="Thumbnail B24" class="thumbnail" data-target="B24">
+            <img src="/api/placeholder/30/30" alt="Thumbnail B25" class="thumbnail" data-target="B25">
+            <img src="/api/placeholder/30/30" alt="Thumbnail B26" class="thumbnail" data-target="B26">
+            <img src="/api/placeholder/30/30" alt="Thumbnail B27" class="thumbnail" data-target="B27">
+            <img src="/api/placeholder/30/30" alt="Thumbnail B28" class="thumbnail" data-target="B28">
+            <img src="/api/placeholder/30/30" alt="Thumbnail B29" class="thumbnail" data-target="B29">
+        </div>
+    </div>
+    
+    <!-- 右侧内容区域 -->
+    <div class="content-box" id="boxRs">
+        <h3 class="section-title" id="textR1">右侧图集 1</h3>
+        <div class="image-gallery">
+            <!-- jpegR01 ~ jpegR11 -->
+            <img src="/api/placeholder/30/30" alt="Thumbnail R01" class="thumbnail" data-target="R01">
+            <img src="/api/placeholder/30/30" alt="Thumbnail R02" class="thumbnail" data-target="R02">
+            <img src="/api/placeholder/30/30" alt="Thumbnail R03" class="thumbnail" data-target="R03">
+            <img src="/api/placeholder/30/30" alt="Thumbnail R04" class="thumbnail" data-target="R04">
+            <img src="/api/placeholder/30/30" alt="Thumbnail R05" class="thumbnail" data-target="R05">
+            <img src="/api/placeholder/30/30" alt="Thumbnail R06" class="thumbnail" data-target="R06">
+            <img src="/api/placeholder/30/30" alt="Thumbnail R07" class="thumbnail" data-target="R07">
+            <img src="/api/placeholder/30/30" alt="Thumbnail R08" class="thumbnail" data-target="R08">
+            <img src="/api/placeholder/30/30" alt="Thumbnail R09" class="thumbnail" data-target="R09">
+            <img src="/api/placeholder/30/30" alt="Thumbnail R10" class="thumbnail" data-target="R10">
+            <img src="/api/placeholder/30/30" alt="Thumbnail R11" class="thumbnail" data-target="R11">
+        </div>
+        
+        <h3 class="section-title" id="textR2">右侧图集 2</h3>
+        <div class="image-gallery">
+            <!-- jpegR12 ~ jpegR22 -->
+            <img src="/api/placeholder/30/30" alt="Thumbnail R12" class="thumbnail" data-target="R12">
+            <img src="/api/placeholder/30/30" alt="Thumbnail R13" class="thumbnail" data-target="R13">
+            <img src="/api/placeholder/30/30" alt="Thumbnail R14" class="thumbnail" data-target="R14">
+            <img src="/api/placeholder/30/30" alt="Thumbnail R15" class="thumbnail" data-target="R15">
+            <img src="/api/placeholder/30/30" alt="Thumbnail R16" class="thumbnail" data-target="R16">
+            <img src="/api/placeholder/30/30" alt="Thumbnail R17" class="thumbnail" data-target="R17">
+            <img src="/api/placeholder/30/30" alt="Thumbnail R18" class="thumbnail" data-target="R18">
+            <img src="/api/placeholder/30/30" alt="Thumbnail R19" class="thumbnail" data-target="R19">
+            <img src="/api/placeholder/30/30" alt="Thumbnail R20" class="thumbnail" data-target="R20">
+            <img src="/api/placeholder/30/30" alt="Thumbnail R21" class="thumbnail" data-target="R21">
+            <img src="/api/placeholder/30/30" alt="Thumbnail R22" class="thumbnail" data-target="R22">
+        </div>
+        
+        <h3 class="section-title" id="textR3">右侧图集 3</h3>
+        <div class="image-gallery">
+            <!-- jpegR23 ~ jpegR29 -->
+            <img src="/api/placeholder/30/30" alt="Thumbnail R23" class="thumbnail" data-target="R23">
+            <img src="/api/placeholder/30/30" alt="Thumbnail R24" class="thumbnail" data-target="R24">
+            <img src="/api/placeholder/30/30" alt="Thumbnail R25" class="thumbnail" data-target="R25">
+            <img src="/api/placeholder/30/30" alt="Thumbnail R26" class="thumbnail" data-target="R26">
+            <img src="/api/placeholder/30/30" alt="Thumbnail R27" class="thumbnail" data-target="R27">
+            <img src="/api/placeholder/30/30" alt="Thumbnail R28" class="thumbnail" data-target="R28">
+            <img src="/api/placeholder/30/30" alt="Thumbnail R29" class="thumbnail" data-target="R29">
+        </div>
+    </div>
+
+    <script>
+        // 颜色名称列表
+        const leftColorNames = [
+            "Transparent Clear",
+            "Transparent Black",
+            "Transparent Red",
+            "Transparent Sky Blue",
+            "Transparent Navi Blue",
+            "Transparent Apple Greem",
+            "Transparent Emerald Green",
+            "Transparent Yellow",
+            "Transparent Orange",
+            "Transparent Purple",
+            "Transparent Pink",
+            "Solid Clear",
+            "Solid Black",
+            "Solid Red",
+            "Solid Sky Blue",
+            "Solid Navi Blue",
+            "Solid Apple Greem",
+            "Solid Emerald Green",
+            "Solid Yellow",
+            "Solid Orange",
+            "Solid Purple",
+            "Solid Pink",
+            "Glitter Silver",
+            "Glitter Gold",
+            "Glitter Red",
+            "Glitter Blue",
+            "Glitter Green",
+            "Glitter Purple",
+            "Glitter Pink"
+        ];
+        
+        const rightColorNames = [
+            "Transparent Clear",
+            "Transparent Black",
+            "Transparent Red",
+            "Transparent Sky Blue",
+            "Transparent Navi Blue",
+            "Transparent Apple Greem",
+            "Transparent Emerald Green",
+            "Transparent Yellow",
+            "Transparent Orange",
+            "Transparent Purple",
+            "Transparent Pink",
+            "Solid Clear",
+            "Solid Black",
+            "Solid Red",
+            "Solid Sky Blue",
+            "Solid Navi Blue",
+            "Solid Apple Greem",
+            "Solid Emerald Green",
+            "Solid Yellow",
+            "Solid Orange",
+            "Solid Purple",
+            "Solid Pink",
+            "Glitter Silver",
+            "Glitter Gold",
+            "Glitter Red",
+            "Glitter Blue",
+            "Glitter Green",
+            "Glitter Purple",
+            "Glitter Pink"
+        ];
+
+        // 页签切换功能
+        const tabs = document.querySelectorAll('.tab');
+        const contentBoxes = document.querySelectorAll('.content-box');
+        
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // 移除所有活动类
+                tabs.forEach(t => t.classList.remove('active'));
+                contentBoxes.forEach(box => box.classList.remove('active'));
+                
+                // 添加当前活动类
+                tab.classList.add('active');
+                
+                // 根据点击的标签显示对应的内容
+                const targetId = tab.id.replace('text', 'box');
+                document.getElementById(targetId).classList.add('active');
+            });
+        });
+        
+        // 缩略图点击更新主图片功能和文本更新
+        const thumbnails = document.querySelectorAll('.thumbnail');
+        
+        thumbnails.forEach(thumb => {
+            thumb.addEventListener('click', () => {
+                const target = thumb.getAttribute('data-target');
+                const type = target.charAt(0); // L, B, or R
+                const number = parseInt(target.substring(1), 10); // 获取数字部分
+                
+                if (type === 'L') {
+                    // 更新左侧主图
+                    document.getElementById('jpeg01L').src = `/api/placeholder/300/300?text=jpeg${target}`;
+                    // 更新左侧文本
+                    if (number >= 1 && number <= 29) {
+                        document.getElementById('textLeft').textContent = `Left: ${leftColorNames[number-1]}`;
+                    }
+                } else if (type === 'R') {
+                    // 更新右侧主图
+                    document.getElementById('jpeg01R').src = `/api/placeholder/300/300?text=jpeg${target}`;
+                    // 更新右侧文本
+                    if (number >= 1 && number <= 29) {
+                        document.getElementById('textRight').textContent = `Right: ${rightColorNames[number-1]}`;
+                    }
+                } else if (type === 'B') {
+                    // 同时更新左右两侧主图
+                    document.getElementById('jpeg01L').src = `/api/placeholder/300/300?text=jpegL${number}`;
+                    document.getElementById('jpeg01R').src = `/api/placeholder/300/300?text=jpegR${number}`;
+                    
+                    // 同时更新左右两侧文本
+                    if (number >= 1 && number <= 29) {
+                        document.getElementById('textLeft').textContent = `Left: ${leftColorNames[number-1]}`;
+                        document.getElementById('textRight').textContent = `Right: ${rightColorNames[number-1]}`;
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
